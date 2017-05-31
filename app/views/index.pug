@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  each user in users
+    .row
+      h1 #{ user.name } (#{ user.hand.name })
+      each card in user.cards
+        .col-md-2
+          .thumbnail
+            p #{ card.suit }
+            h1 #{ card.number }
+
+  .text-center
+    if winner
+      h2 The winner is
+      h1 #{ winner.name }
+    else
+      h1 a tie
